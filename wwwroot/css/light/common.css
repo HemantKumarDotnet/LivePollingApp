@@ -10224,7 +10224,7 @@ progress {
   --bs-table-border-color: #dee2e6;
   --bs-table-accent-bg: transparent;
   --bs-table-striped-color: var(--bs-emphasis-color);
-  --bs-table-striped-bg: #F4F5F7;
+  --bs-table-striped-bg: #b9c9e7;
   --bs-table-active-color: var(--bs-emphasis-color);
   --bs-table-active-bg: rgba(var(--bs-emphasis-color-rgb), 0.1);
   --bs-table-hover-color: var(--bs-emphasis-color);
@@ -21302,7 +21302,7 @@ body,
 html {
   overflow-x: hidden;
   padding-right: 0 !important;
-  background: #F4F5F7;
+  background: #b9c9e7;
 }
 
 *:-moz-full-screen,
@@ -21444,7 +21444,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #F4F5F7;
+  background: #b9c9e7;
   color: color(dark);
   padding: 30px 2.45rem;
   transition: all 0.25s ease;
@@ -21797,7 +21797,7 @@ code {
   padding-top: 16px;
   padding-bottom: 16px;
   z-index: 10;
-  background: #F4F5F7;
+  background: #b9c9e7;
 }
 
 .doc-content {
@@ -27166,7 +27166,7 @@ dl li {
   background: #eaeaf1;
 }
 .table.table-striped > tbody > tr:nth-of-type(odd) > * {
-  background: #F4F5F7;
+  background: #b9c9e7;
 }
 .table.table-analytic th {
   padding: 10px;
