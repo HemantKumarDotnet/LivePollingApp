@@ -8,5 +8,9 @@ namespace LivePollingApp.Controllers
         {
             return View();
         }
+        public IActionResult PollingSchedule()
+        {
+            return View();
+        }   
     }
 }
