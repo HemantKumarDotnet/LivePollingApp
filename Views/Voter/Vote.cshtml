@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Vote";
+    Layout = "~/Views/Shared/_VoterLayout.cshtml";
+}
+
+<div class="voting-list">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="voting-item">
+                <div class="voting-left">
+                    <img class="avatar" src="https://localhost:7175/images/live%20polling.png" alt="Candidate" />
+                    <div class="candidate-info">
+                        <strong>Brandon Washington</strong>
+                        <span>Head admin</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="vote('Brandon Washington')">Vote</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="voting-item">
+                <div class="voting-left">
+                    <img class="avatar" src="https://localhost:7175/images/live%20polling.png" alt="Candidate" />
+                    <div class="candidate-info">
+                        <strong>Laura Brooks</strong>
+                        <span>Head admin</span>
+                    </div>
+                </div>   
+                <button class="vote-btn" onclick="vote('Laura Brooks')">Vote</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="voting-item">
+                <div class="voting-left">
+                    <img class="avatar" src="https://localhost:7175/images/live%20polling.png" alt="Candidate" />
+                    <div class="candidate-info">
+                        <strong>Brandon Washington</strong>
+                        <span>Head admin</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="vote('Brandon Washington')">Vote</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="voting-item">
+                <div class="voting-left">
+                    <img class="avatar" src="https://localhost:7175/images/live%20polling.png" alt="Candidate" />
+                    <div class="candidate-info">
+                        <strong>Brandon Washington</strong>
+                        <span>Head admin</span>
+                    </div>
+                </div>
+                <button class="vote-btn" onclick="vote('Brandon Washington')">Vote</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function vote(candidateName) {
+        alert("Vote cast for " + candidateName);
+        // Connect this to your backend or AJAX logic
+    }
+</script>

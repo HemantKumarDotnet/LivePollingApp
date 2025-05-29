@@ -54,6 +54,20 @@
       offsetAnchor();
       }, 0);
   });
+
+    $('.number').on('keydown', function (e) {
+        // Allow control keys
+        const controlKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'];
+
+        if (controlKeys.includes(e.key)) {
+            return; // allow control keys
+        }
+
+        // Block alphabetic characters (A-Z, a-z)
+        if (/[a-zA-Z]/.test(e.key)) {
+            e.preventDefault(); // prevent input
+        }
+    });
   
   // Set the offset when entering page with hash present in the url
   window.setTimeout(offsetAnchor, 0);
