@@ -2,17 +2,13 @@
 
 namespace LivePollingApp.Controllers
 {
-    public class Polling : Controller
+    public class VoterController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult PollingSchedule()
-        {
-            return View();
-        }
-        public IActionResult CandidateApproval()
+        public IActionResult Vote()
         {
             return View();
         }
