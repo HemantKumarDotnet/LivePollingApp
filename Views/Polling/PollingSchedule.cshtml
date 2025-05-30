@@ -12,7 +12,12 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Date of Polling</label>
                             <div class="col-sm-9">
-                                <input type="datetime" class="form-control" placeholder="dd/mm/yyyy" />
+                                <div id="datepicker-popup" class="col-sm-9 input-group date datepicker navbar-date-picker">
+                                    <span class="input-group-addon input-group-prepend border-right">
+                                        <span class="icon-calendar input-group-text calendar-icon"></span>
+                                    </span>
+                                    <input type="text" class="form-control">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -62,3 +67,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $("#txtPollingDate").datepicker({
+            dateFormat: "dd/mm/yyyy"
+        });
+    });
+</script>
