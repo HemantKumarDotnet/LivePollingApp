@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Polling App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+            header h1 {
+                font-size: 24px;
+                color: #4f46e5;
+            }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            nav a:hover {
+                color: #4f46e5;
+            }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 60px;
+            background: linear-gradient(to right, #f9f9f9, #eaf6ff);
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+            .hero-text h2 {
+                font-size: 42px;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .hero-text p {
+                font-size: 18px;
+                margin-bottom: 30px;
+                color: #666;
+            }
+
+            .hero-text a {
+                padding: 12px 28px;
+                background: linear-gradient(to right, #667eea, #764ba2);
+                color: #fff;
+                text-decoration: none;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: background 0.4s;
+            }
+
+                .hero-text a:hover {
+                    background: linear-gradient(to right, #5f72e8, #693b9f);
+                }
+
+        .hero-image img {
+            width: 230px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+
+
+        .features, .testimonials, .faq, .cta {
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+            .features h3, .testimonials h3, .faq h3, .cta h3 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+        .feature-boxes {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 30px;
+        }
+
+        .feature {
+            flex: 1 1 300px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+            .feature:hover {
+                transform: translateY(-10px);
+            }
+
+            .feature img {
+                width: 100px;
+                margin-bottom: 20px;
+            }
+
+            .feature h4 {
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+
+            .feature p {
+                color: #555;
+            }
+
+        .testimonials .card, .faq .faq-item {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+            .testimonials .card p {
+                font-style: italic;
+            }
+
+            .faq .faq-item h4 {
+                font-size: 18px;
+                color: #4f46e5;
+                margin-bottom: 10px;
+            }
+
+        .cta {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #fff;
+            border-radius: 20px;
+        }
+
+            .cta a {
+                margin-top: 20px;
+                display: inline-block;
+                background: #fff;
+                color: #4f46e5;
+                font-weight: 600;
+                padding: 12px 24px;
+                border-radius: 30px;
+                text-decoration: none;
+            }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #f7f9fc;
+            color: #777;
+        }
+
+            footer a {
+                color: #4f46e5;
+                margin: 0 10px;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+
+        .gallery {
+            padding: 80px 60px;
+            background: #f2f7fc;
+            text-align: center;
+        }
+
+            .gallery h3 {
+                font-size: 34px;
+                margin-bottom: 10px;
+                color: #222;
+            }
+
+            .gallery p {
+                font-size: 18px;
+                color: #666;
+                margin-bottom: 40px;
+            }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 16px;
+                transition: transform 0.4s ease;
+            }
+
+            .gallery-item:hover {
+                transform: scale(1.03);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            }
+
+                .gallery-item:hover img {
+                    transform: scale(1.1);
+                }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Live Polling</h1>
+        <nav>
+            <a href="~/Home/public">Public Page</a>
+            <a href="~/Home/public">Create Poll</a>
+            <a href="~/Home/login">Login</a>
+            <a href="~/Home/Register">Register</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Real-Time Polling System</h2>
+            <p>Cast votes and view results instantly with our sleek, secure, and modern live polling platform.</p>
+            <a href="~/Home/public">View Live Votes</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://assets.contenthub.wolterskluwer.com/api/public/content/b939907f689849929bc42e693d02c6d6?v=46c27397" alt="Polling Illustration">
+        </div>
+    </section>
+
+    <section class="features">
+        <h3>Why Choose Us?</h3>
+        <div class="feature-boxes">
+            <div class="feature">
+                <img src="https://img.icons8.com/fluency/96/graph.png" alt="Live Results">
+                <h4>Live Results</h4>
+                <p>Votes are updated in real-time. Stay informed instantly without page refreshes.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/fluency/96/lock-2.png" alt="Secure Voting">
+                <h4>Secure & Reliable</h4>
+                <p>We use modern authentication and backend validation to ensure fair voting.</p>
+            </div>
+            <div class="feature">
+                <img src="https://img.icons8.com/fluency/96/settings.png" alt="Easy Management">
+                <h4>Create & Manage Polls</h4>
+                <p>Login to create and monitor your own polls from a simple dashboard.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h3>Gallery</h3>
+        <p>Explore real-life moments of voting and audience engagement.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Person casting a vote">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80" alt="Audience participating in live poll">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Digital polling interface on tablet">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581090700227-1c5a1f5c79e2?auto=format&fit=crop&w=800&q=80" alt="People voting in a booth">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/3184468/pexels-photo-3184468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Live poll results displayed on screen">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1629904863650-0e4800c16481?auto=format&fit=crop&w=800&q=80" alt="Engaged audience during live polling">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta">
+        <h3>Ready to Start Polling?</h3>
+        <p>Join thousands who are making fast, data-driven decisions with our live polls.</p>
+        <a href="~/Home/Login">Create Your Poll Now</a>
+    </section>
+
+    <footer>
+        &copy; 2025 Live Polling App. Crafted with 💙 for real-time democracy.
+        <br />
+        <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a> | <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    </footer>
+
+</body>
+</html>

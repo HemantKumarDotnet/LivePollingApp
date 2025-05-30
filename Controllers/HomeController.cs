@@ -201,5 +201,9 @@ namespace LivePollingApp.Controllers
         {
             return View();
         }
+        public IActionResult LivePolling()
+        {
+            return View();
+        }
     }
 }
