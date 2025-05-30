@@ -1,0 +1,33 @@
+
+/* Gradient Background Animation */
+@keyframes gradientShift {
+    0% {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    50% {
+        background: linear-gradient(135deg, #43cea2, #185a9d);
+    }
+
+    100% {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+}
+
+/* Vote Pulse Animation */
+@keyframes pulseVote {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

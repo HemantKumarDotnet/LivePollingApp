@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Polling - Vote Count</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Animate.css for fade animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea, #764ba2);
+      --secondary-gradient: linear-gradient(135deg, #43cea2, #185a9d);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #eef2f7;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #4f46e5;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .candidate-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      background: var(--primary-gradient);
+      animation: gradientShift 5s ease infinite;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .candidate-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .candidate-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .candidate-info img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .candidate-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .candidate-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .candidate-role {
+      font-size: 14px;
+      color: #e0e0ff;
+    }
+
+    .vote-count {
+      text-align: right;
+    }
+
+    .vote-count .number {
+      font-size: 26px;
+      font-weight: 700;
+      animation: pulseVote 2s infinite;
+    }
+
+    .vote-count .label {
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      padding: 40px 20px;
+    }
+ 
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Live Polling</h1>
+    <div>Date: <span id="currentDate"></span></div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <h2 class="section-title animate__animated animate__fadeInDown">Live Vote Count</h2>
+
+    <div class="candidate-grid">
+      <!-- Candidate 1 -->
+      <div class="candidate-card animate__animated animate__fadeInUp">
+        <div class="candidate-info">
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Candidate Photo">
+          <div class="candidate-details">
+            <div class="candidate-name">Brandon Washington</div>
+            <div class="candidate-role">Head Admin</div>
+          </div>
+        </div>
+        <div class="vote-count">
+          <div class="number">444</div>
+          <div class="label">Votes</div>
+        </div>
+      </div>
+
+      <!-- Candidate 2 -->
+      <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="candidate-info">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+          <div class="candidate-details">
+            <div class="candidate-name">Emma Johnson</div>
+            <div class="candidate-role">Vice Admin</div>
+          </div>
+        </div>
+        <div class="vote-count">
+          <div class="number">378</div>
+          <div class="label">Votes</div>
+        </div>
+      </div>
+            <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="candidate-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+                    <div class="candidate-details">
+                        <div class="candidate-name">Emma Johnson</div>
+                        <div class="candidate-role">Vice Admin</div>
+                    </div>
+                </div>
+                <div class="vote-count">
+                    <div class="number">378</div>
+                    <div class="label">Votes</div>
+                </div>
+            </div>
+            <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="candidate-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+                    <div class="candidate-details">
+                        <div class="candidate-name">Emma Johnson</div>
+                        <div class="candidate-role">Vice Admin</div>
+                    </div>
+                </div>
+                <div class="vote-count">
+                    <div class="number">378</div>
+                    <div class="label">Votes</div>
+                </div>
+            </div>
+            <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="candidate-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+                    <div class="candidate-details">
+                        <div class="candidate-name">Emma Johnson</div>
+                        <div class="candidate-role">Vice Admin</div>
+                    </div>
+                </div>
+                <div class="vote-count">
+                    <div class="number">378</div>
+                    <div class="label">Votes</div>
+                </div>
+            </div>
+            <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="candidate-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+                    <div class="candidate-details">
+                        <div class="candidate-name">Emma Johnson</div>
+                        <div class="candidate-role">Vice Admin</div>
+                    </div>
+                </div>
+                <div class="vote-count">
+                    <div class="number">378</div>
+                    <div class="label">Votes</div>
+                </div>
+            </div>
+            <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="candidate-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+                    <div class="candidate-details">
+                        <div class="candidate-name">Emma Johnson</div>
+                        <div class="candidate-role">Vice Admin</div>
+                    </div>
+                </div>
+                <div class="vote-count">
+                    <div class="number">378</div>
+                    <div class="label">Votes</div>
+                </div>
+            </div>
+            <div class="candidate-card animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="candidate-info">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Candidate Photo">
+                    <div class="candidate-details">
+                        <div class="candidate-name">Emma Johnson</div>
+                        <div class="candidate-role">Vice Admin</div>
+                    </div>
+                </div>
+                <div class="vote-count">
+                    <div class="number">378</div>
+                    <div class="label">Votes</div>
+                </div>
+            </div>
+      <!-- More candidate cards can be added below -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Live Polling App. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("currentDate").textContent = new Date().toLocaleDateString();
+  </script>
+
+</body>
+</html>
