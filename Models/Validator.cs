@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Globalization;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 namespace LivePollingApp.Models
@@ -58,5 +59,52 @@ namespace LivePollingApp.Models
             byte[] encryptedBytes = Convert.FromBase64String(encryptedPassword);
             return Encoding.UTF8.GetString(encryptedBytes);
         }
+
+        public static bool IsValidDate(string input, bool allowTime = false)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
+
+            string dateFormat = "dd/MM/yyyy";
+            string dateTimeFormat = "dd/MM/yyyy HH:mm:ss"; // or adjust as needed
+
+            if (allowTime)
+            {
+                return DateTime.TryParseExact(
+                    input,
+                    dateTimeFormat,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out _
+                );
+            }
+            else
+            {
+                return DateOnly.TryParseExact(
+                    input,
+                    dateFormat,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out _
+                );
+            }
+        }
+
+        public static DateOnly? ConvertToDateOnly(string input)
+        {
+            if (DateOnly.TryParseExact(
+                input,
+                "dd/MM/yyyy",
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out var result))
+            {
+                return result;
+            }
+
+            return null;
+        }
+
+
     }
 }
